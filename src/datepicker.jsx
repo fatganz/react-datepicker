@@ -9,6 +9,7 @@ var isEqual = require( "lodash/lang/isEqual" );
 var DatePicker = React.createClass( {
 
   propTypes: {
+    name: React.PropTypes.string,
     weekdays: React.PropTypes.arrayOf( React.PropTypes.string ),
     locale: React.PropTypes.string,
     dateFormatCalendar: React.PropTypes.string,
@@ -23,6 +24,7 @@ var DatePicker = React.createClass( {
 
   getDefaultProps: function() {
     return {
+      name: '',
       weekdays: [ "Su", "Mo", "Tu", "We", "Th", "Fr", "Sa" ],
       locale: "en",
       dateFormatCalendar: "MMMM YYYY",
@@ -94,7 +96,7 @@ var DatePicker = React.createClass( {
       selected: date.moment(),
       virtualFocus: true
     }, function() {
-      this.props.onChange( this.state.selected );
+      this.props.onChange( this.state.selected, this.props.name );
     }.bind( this ) );
   },
 
