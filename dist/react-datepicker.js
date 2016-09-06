@@ -68,6 +68,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  displayName: "DatePicker",
 
 	  propTypes: {
+	    name: React.PropTypes.string,
 	    weekdays: React.PropTypes.arrayOf(React.PropTypes.string),
 	    locale: React.PropTypes.string,
 	    dateFormatCalendar: React.PropTypes.string,
@@ -82,6 +83,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  getDefaultProps: function getDefaultProps() {
 	    return {
+	      name: '',
 	      weekdays: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
 	      locale: "en",
 	      dateFormatCalendar: "MMMM YYYY",
@@ -153,7 +155,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      selected: date.moment(),
 	      virtualFocus: true
 	    }, (function () {
-	      this.props.onChange(this.state.selected);
+	      this.props.onChange(this.state.selected, this.props.name);
 	    }).bind(this));
 	  },
 
